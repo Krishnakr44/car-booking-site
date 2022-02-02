@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>  MY CAR RENTAL PAGE </title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1> WELCOMe </h1>
+<div class="menu-bar">
+<ul>
+<li class="active"><a href="#"> Home</a> </li>
+<li><a href="#"> Account</a> </li>
+<li><a href="#"> Car list</a> </li>
+<li><a href="#"> help</a> </li>
+<li><a href="#"> contact us</a> </li>
+</ul>
+</div> 
+</body>
+</html>
+
+  

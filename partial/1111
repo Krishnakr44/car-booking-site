@@ -1,0 +1,209 @@
+<DOCTYPE html>
+<html>
+
+
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="ll2.jpg">
+    <title> Form </title>
+    <link rel="stylesheet" href="form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+   
+    <style>
+        body {
+    background-image: url(back.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+        .h2-2 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .form-control {
+            border: 2px solid black;
+            border-radius: 4px;
+            padding: 5px;
+            width: 400px;
+            margin-top: 5px;
+            margin-left: -39px;
+        }
+
+        .form-1 {
+            margin-left: 400px;
+
+            margin-top: 20px;
+        }
+
+        .btn-1 {
+            border: 2px solid black;
+            background-color: black;
+            color: yellow;
+            padding: 8px;
+            border-radius: 4px;
+            width: 200px;
+            margin-bottom: 3px;
+
+        }
+        .btn-2 {
+            border: 2px solid black;
+            background-color: black;
+            color: yellow;
+            padding: 8px;
+            border-radius: 4px;
+            width: 200px;
+            margin-left: 282px;
+            margin-top: 3px;
+        }
+        #inp-1{
+            margin-left: 40px;
+        }
+        #inp-2{
+            margin-left: 23px;
+        }
+        #inp-3{
+            margin-left: 40px;
+        }
+        #inp-4{
+            margin-left: 56px;
+        }
+        #inp-5{
+            margin-left: 38px;
+        }
+        #inp-9{
+            margin-left: 23px;
+        }
+        #inp-10{
+            margin-left: 13px;
+        }
+        #inp-6{
+            margin-left: 1px;
+        }
+        .g-1{
+            margin-top: 15px;
+            color: aqua;
+            
+    
+        }
+     
+
+        .form-group{
+            font-family: 'Oswald', sans-serif;
+            color: darkblue;
+        }
+        .a-1{
+            color: yellow;
+            text-decoration: none;
+        }
+    </style>
+
+
+</head>
+<?php
+
+  $servername ="localhost";
+  $username ="root"; 
+  $password ="";
+  $database ="owncar";
+
+  $conn = mysqli_connect($servername , $username , $password , $database );
+  if(!$conn){
+        die("Sorry we failed to connect :". mysqli_connect_error());
+     }
+
+?>
+
+
+<?php
+if ($_SERVER['REQUEST_METHOD']=='POST'){
+    $Username =$_POST['Username'];
+    $email =$_POST['email'];
+    $adhar =$_POST['adhar'];
+    $city =$_POST['city'];
+    $mobile =$_POST['mobile'];
+    $Cartype =$_POST['Car-type'];
+    $Carmodel =$_POST['Car-model'];
+    $Carnum =$_POST['Car-num'];
+
+    $sql="INSERT INTO `car-information` (`Car-id`, `Username`, `email`, `Adhar`, `City`, `mobile`, `Car_type`, `Car_model`, `Car_Number`, `date`) VALUES (NULL, '$Username', '$email', '$adhar', '$city', '$mobile', '$Cartype', '$Carmodel', '$Carnum', '2020-10-07 19:59:52')"; 
+    $result=mysqli_query($conn , $sql);
+    if($result){
+        echo'<div class="alert alert-success  alert-dismissible fade show" role="alert">
+             <strong>Success</strong> Insert your information in database.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>';
+    }
+    else{
+        echo'<div class="alert alert-success  alert-dismissible fade show" role="alert">
+        <strong>Failed</strong> Not insert your information in database.
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>';
+    }
+}
+?>
+
+<?php
+?>
+
+<body> <h2 class="h2-2" style="color:rgb(30, 30, 58);"> Resistration Form <br><br></h2>
+    <form action="/carsite/partial/myform.php" method="POST" class="form-1">
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="l-1">Name</label>
+          <input type="username" id="inp-1"  name="Username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email_id</label>
+            <input type="email" id="inp-2" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Adhar</label>
+            <input type="username" class="form-control"  name="adhar" id="inp-3" aria-describedby="emailHelp">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">City</label>
+            <input type="username" class="form-control" id="inp-4"  name="city" aria-describedby="emailHelp">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Mobile</label>
+            <input type="username" class="form-control"  name="mobile" id="inp-5">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Car-type</label>
+            <input type="username" class="form-control"  name="Car-type" id="inp-9">
+          </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Car-Model</label>
+          <input type="username" class="form-control"  name="Car-model" id="inp-10">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Car-Number</label>
+            <input type="username" class="form-control" name="Car-num" id="inp-6"><br><br><br>
+          </div>
+         
+       
+          <button type="submit" class="btn  btn-1 btn-primary">Submit</button> 
+
+
+          <!-- <button type="submit"  href="./1page.html" class="btn  btn-2 btn-primary"   role="button" >Back</button>  -->
+
+         <button class="btn-2 "><a class="a-1" href="./1page.html">Back</a></button>
+         <!-- <a class="btn btn-2 btn-primary" href="./1page.html"    role="button">Back</a> -->
+         
+      </form>
+
+
+     
+    
+
+</body>
+
+</html>
